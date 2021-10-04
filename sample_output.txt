@@ -1,0 +1,81 @@
+
+edoras$ ./pagetable -o bitmasks /home/cs/faculty/mroch/lib/cs570/trace/trace.sample.tr 4 4 12
+Bitmasks
+level 0 mask F0000000
+level 1 mask 0F000000
+level 2 mask 00FFF000
+
+edoras$ ./pagetable -n 20 -o offset /home/cs/faculty/mroch/lib/cs570/trace/trace.sample.tr 4 4 12
+0041F760 -> 00000760
+0041F780 -> 00000780
+0041F740 -> 00000740
+11F5E2C0 -> 000002C0
+05E78900 -> 00000900
+13270900 -> 00000900
+004758A0 -> 000008A0
+004A30A0 -> 000000A0
+0049E110 -> 00000110
+0049E160 -> 00000160
+0044E4F8 -> 000004F8
+0044E500 -> 00000500
+0744E520 -> 00000520
+0044E5A0 -> 000005A0
+388A65A0 -> 000005A0
+0744EDD0 -> 00000DD0
+0044E5E0 -> 000005E0
+0703FF10 -> 00000F10
+0044E620 -> 00000620
+1D496620 -> 00000620
+
+edoras$ ./pagetable -n 20 -o page2frame /home/cs/faculty/mroch/lib/cs570/trace/trace.sample.tr 4 4 12
+0041F760: 0 0 41F -> 0
+0041F780: 0 0 41F -> 0
+0041F740: 0 0 41F -> 0
+11F5E2C0: 1 1 F5E -> 1
+05E78900: 0 5 E78 -> 2
+13270900: 1 3 270 -> 3
+004758A0: 0 0 475 -> 4
+004A30A0: 0 0 4A3 -> 5
+0049E110: 0 0 49E -> 6
+0049E160: 0 0 49E -> 6
+0044E4F8: 0 0 44E -> 7
+0044E500: 0 0 44E -> 7
+0744E520: 0 7 44E -> 8
+0044E5A0: 0 0 44E -> 7
+388A65A0: 3 8 8A6 -> 9
+0744EDD0: 0 7 44E -> 8
+0044E5E0: 0 0 44E -> 7
+0703FF10: 0 7 3F -> A
+0044E620: 0 0 44E -> 7
+1D496620: 1 D 496 -> B
+
+edoras$ ./pagetable -n 20 -o logical2physical /home/cs/faculty/mroch/lib/cs570/trace/trace.sample.tr 28
+0041F760 -> 00000000
+0041F780 -> 00000010
+0041F740 -> 00000020
+11F5E2C0 -> 00000030
+05E78900 -> 00000040
+13270900 -> 00000050
+004758A0 -> 00000060
+004A30A0 -> 00000070
+0049E110 -> 00000080
+0049E160 -> 00000090
+0044E4F8 -> 000000A8
+0044E500 -> 000000B0
+0744E520 -> 000000C0
+0044E5A0 -> 000000D0
+388A65A0 -> 000000E0
+0744EDD0 -> 000000F0
+0044E5E0 -> 00000100
+0703FF10 -> 00000110
+0044E620 -> 00000120
+1D496620 -> 00000130
+
+edoras$ ./pagetable -n 100000 -o summary /home/cs/faculty/mroch/lib/cs570/trace/trace.sample.tr 20
+Page size: 4096 bytes
+Addresses processed: 100000
+Hits: 98570 (98.57%), Misses 1430 (1.43%)
+Frames allocated: 1430
+Bytes used:  8388692 
+(NOTE:  Bytes used depends on your implementation.)
+
